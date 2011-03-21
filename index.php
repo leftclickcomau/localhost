@@ -22,7 +22,7 @@ foreach (scandir('.') as $entry) {
 			ul#top-level { list-style: none; margin: 0; padding: 0; }
 			ul#top-level li.top-level { width: 33%; float: left; }
 			ul#top-level li.top-level ul { list-style: disc; line-height: 2em; }
-			ul#top-level li.top-level ul li img { padding-right: .5em; }
+			ul#top-level li.top-level ul li img { padding-right: .5em; width: 16px; height: 16px; }
 			address { margin-top: 1em; border-top: 1px solid #666; padding: 1em; }
 		</style>
 	</head>
@@ -53,6 +53,7 @@ for ($j=0; $j<sizeof($list); ) {
 			</ul>
 			<div style="clear:both;"></div>
 		</div>
+		<center><a href="phpinfo">PHP Information</a></center>
 		<address><?=php_uname()?></address>
 	</body>
 </html>
