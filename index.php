@@ -28,8 +28,8 @@ foreach (scandir('.') as $entry) {
 			a.button:active { color: #00f; }
 			#container { max-width: 1200px; margin: 0 auto 1em auto; padding: 0; border: 1px solid #666; background-color: #fff; }
 			ul#top-level { list-style: none; margin: 0; padding: 0; }
-			li.column { width: 33%; float: left; }
-			ul.column-content { margin: 0 0 0 2em; }
+			li.column { width: 33.33%; float: left; }
+			ul.column-content { margin: 0 1em; }
 			li.project { text-align: center; margin: 0 0 1.5em 0; padding: .5em; border: solid 1px #666; background-color: #f8f8f8; -moz-box-shadow: 0 0 8px #000; }
 			li.project h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 1em 0; }
 			li.project img { width: 16px; height: 16px; vertical-align: middle; }
