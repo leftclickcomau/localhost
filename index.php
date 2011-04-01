@@ -13,20 +13,21 @@ foreach (scandir('.') as $entry) {
 		<title>localhost</title>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> 
 		<style type="text/css">
-			html, body { padding: 0; margin: 0; }
-			html { background-color: #ccc; }
-			body { background-color: #f8f8f8; padding: 1em 0 0 0; }
+			html, body { padding: 0; margin: 0; overflow-x: hidden; }
+			html { background: #333 url(Thor4Andreo.jpg) center no-repeat; }
+			body { padding: 1em 0 0 0; }
 			* { font-family: sans-serif; }
 			h1 { text-align: center; }
+			h1 span { color: #eee; background-color: #000; font-family: monospace; padding: .33em; opacity: .7; -moz-box-shadow: 0 0 24px #000; }
 			h2 { color: #333; }
 			ul, li { display: block; list-style: none; padding: 0; margin: 0; }
 			img { border: none; }
-			address { margin-top: 1em; border-top: 1px solid #666; padding: 1em; text-align: center; background-color: #ccc; }
+			address { position: absolute; bottom: 0; left: 0; right: 0; padding: 1em; text-align: center; background-color: #000; color: #fff; opacity: .7; -moz-box-shadow: 0 -16px 16px #000; }
 			a { text-decoration: none; color: #00f; }
 			a.button { border: solid 1px #006; padding: .25em; background-color: #eef; color: #006; -moz-box-shadow: 0 0 8px #000; }
 			a.button:hover { background-color: #ccf; }
 			a.button:active { color: #00f; }
-			#container { max-width: 1200px; margin: 0 auto 1em auto; padding: 0; border: 1px solid #666; background-color: #fff; }
+			#container { max-width: 1100px; margin: 0 auto 1em auto; padding: 0; }
 			ul#top-level { list-style: none; margin: 0; padding: 0; }
 			li.column { width: 33.33%; float: left; }
 			ul.column-content { margin: 0 1em; }
@@ -37,13 +38,13 @@ foreach (scandir('.') as $entry) {
 			li.project img.right { padding-left: 4px; }
 			ul.project-content { text-align: center; margin: 0 0 1em 0; }
 			li.project-link { display: inline-block; font-size: smaller; padding: 0 .5em; }
-			ul#buttons { text-align: center; margin: 1.5em auto; }
+			ul#buttons { text-align: center; margin: 1em auto; }
 			.clear { clear: both; }
 		</style>
 	</head>
 	<body class="index">
 		<div id="container">
-			<h1>localhost</h1>
+			<h1><span>localhost</span></h1>
 			<ul id="top-level">
 <?php
 $max = sizeof($list) / 3;
