@@ -18,7 +18,7 @@ foreach (scandir('.') as $entry) {
 			body { padding: 1em 0 0 0; }
 			* { font-family: sans-serif; }
 			h1 { text-align: center; }
-			h1 span { color: #eee; background-color: #000; font-family: monospace; padding: .33em; opacity: .7; -moz-box-shadow: 0 0 24px #000; }
+			h1 span { color: #fff; background-color: #000; font-family: monospace; padding: .33em; opacity: .7; -moz-box-shadow: 0 0 24px #000; }
 			h2 { color: #333; }
 			ul, li { display: block; list-style: none; padding: 0; margin: 0; }
 			img { border: none; }
