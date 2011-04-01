@@ -68,8 +68,8 @@ for ($j=0; $j<sizeof($list); ) {
 								<li class="project-link local">
 									<a href="<?=$value?>" title="Local" rel="external" class="button">Local</a>
 								</li>
-								<li class="project-link testing">
-									<a href="http://troll/<?=$value?>/" title="Testing" rel="external" class="button">Testing</a>
+								<li class="project-link test">
+									<a href="http://test.leftclick.com.au/<?=$value?>/" title="Test" rel="external" class="button">Test</a>
 								</li>
 								<li class="project-link production">
 									<a href="http://<?=$value?>/" title="Production" rel="external" class="button">Production</a>
