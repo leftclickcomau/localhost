@@ -22,7 +22,7 @@ foreach (scandir('.') as $entry) {
 			h2 { color: #333; }
 			ul, li { display: block; list-style: none; padding: 0; margin: 0; }
 			img { border: none; }
-			address { position: absolute; bottom: 0; left: 0; right: 0; padding: 1em; text-align: center; background-color: #000; color: #fff; opacity: .7; -moz-box-shadow: 0 -16px 16px #000; }
+			address { position: fixed; bottom: 0; left: 0; right: 0; padding: 1em; text-align: center; background-color: #000; color: #fff; opacity: .7; -moz-box-shadow: 0 -16px 16px #000; }
 			a { text-decoration: none; color: #00f; }
 			a.button { border: solid 1px #006; padding: .25em; background-color: #eef; color: #006; -moz-box-shadow: 0 0 8px #000; }
 			a.button:hover { background-color: #ccf; }
@@ -31,14 +31,14 @@ foreach (scandir('.') as $entry) {
 			ul#top-level { list-style: none; margin: 0; padding: 0; }
 			li.column { width: 33.33%; float: left; }
 			ul.column-content { margin: 0 1em; }
-			li.project { text-align: center; margin: 0 0 1.5em 0; padding: .5em; border: solid 1px #666; background-color: #f8f8f8; -moz-box-shadow: 0 0 8px #000; }
-			li.project h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 1em 0; }
+			li.project { text-align: center; margin: 0 0 1.5em 0; padding: .5em; border: dotted 1px #666; background-color: #000; background-position: 8px 8px; background-repeat: no-repeat; -moz-box-shadow: 0 0 16px #000; }
+			li.project h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 0; color: #eee; }
 			li.project img { width: 16px; height: 16px; vertical-align: middle; }
 			li.project img.left { padding-right: 4px; }
 			li.project img.right { padding-left: 4px; }
-			ul.project-content { text-align: center; margin: 0 0 1em 0; }
+			ul.project-content { text-align: center; margin: 1em 0 .5em 0; }
 			li.project-link { display: inline-block; font-size: smaller; padding: 0 .5em; }
-			ul#buttons { text-align: center; margin: 1em auto; }
+			ul#buttons { text-align: center; margin: 1em auto 5em auto; }
 			.clear { clear: both; }
 		</style>
 	</head>
@@ -58,12 +58,8 @@ for ($j=0; $j<sizeof($list); ) {
 		$img_src = file_exists($value . '/favicon.ico') ? ($value . '/favicon.ico') : 'unknown.ico';
 		$project_name = preg_replace('/\W/', '-', $value);
 ?>
-						<li id="project-<?=$project_name?>" class="project">
-							<h2>
-								<img src="<?=$img_src?>" alt="?" class="left" />
-								<?=$value?>
-								<img src="<?=$img_src?>" alt="?" class="right" />
-							</h2>
+						<li id="project-<?=$project_name?>" class="project" style="background-image: url(<?=$img_src?>);">
+							<h2><?=$value?></h2>
 							<ul id="project-content-<?=$project_name?>" class="project-content">
 								<li class="project-link local">
 									<a href="<?=$value?>" title="Local" rel="external" class="button">Local</a>
