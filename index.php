@@ -15,7 +15,6 @@ foreach (scandir('.') as $entry) {
 		<style type="text/css">
 			html, body { padding: 0; margin: 0; overflow-x: hidden; }
 			html { background: #333 url(Thor4Andreo.jpg) center no-repeat; }
-			body { padding: 1em 0 0 0; }
 			* { font-family: sans-serif; }
 			h1 { text-align: center; }
 			h1 span { color: #fff; background-color: #000; font-family: monospace; padding: .33em; opacity: .7; -moz-box-shadow: 0 0 24px #000; }
@@ -27,11 +26,10 @@ foreach (scandir('.') as $entry) {
 			a.button { border: solid 1px #006; padding: .25em; background-color: #eef; color: #006; -moz-box-shadow: 0 0 8px #000; }
 			a.button:hover { background-color: #ccf; }
 			a.button:active { color: #00f; }
-			#container { max-width: 1100px; margin: 0 auto 1em auto; padding: 0; }
-			ul#top-level { list-style: none; margin: 0; padding: 0; }
-			li.column { width: 33.33%; float: left; }
-			ul.column-content { margin: 0 1em; }
-			li.project { text-align: center; margin: 0 0 1.5em 0; padding: .5em; border: dotted 1px #666; background-color: #000; background-position: 8px 8px; background-repeat: no-repeat; -moz-box-shadow: 0 0 16px #000; }
+			#container { max-width: 1100px; margin: 0 auto; padding: 0; }
+			ul#projects { list-style: none; margin: 0; padding: 0; }
+			li.project { width: 33.33%; float: left; text-align: center; }
+			li.project div.project-panel { margin: 1em; padding: .5em; border: dotted 1px #666; background-color: #000; background-position: 8px 8px; background-repeat: no-repeat; -moz-box-shadow: 0 0 16px #000; }
 			li.project h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 0; color: #eee; }
 			li.project img { width: 16px; height: 16px; vertical-align: middle; }
 			li.project img.left { padding-right: 4px; }
@@ -45,40 +43,31 @@ foreach (scandir('.') as $entry) {
 	<body class="index">
 		<div id="container">
 			<h1><span>localhost</span></h1>
-			<ul id="top-level">
+			<ul id="projects">
 <?php
-$max = sizeof($list) / 3;
-for ($j=0; $j<sizeof($list); ) {
-?>
-				<li id="column-<?=$j?>" class="column">
-					<ul id="column-content-<?=$j?>" class="column-content">
-<?php
-	for ($i=0; ($i<$max) && ($j<sizeof($list)); $i++, $j++) {
-		$value = $list[$j];
+	for ($i=0; $i<sizeof($list); $i++) {
+		$value = $list[$i];
 		$img_src = file_exists($value . '/favicon.ico') ? ($value . '/favicon.ico') : 'unknown.ico';
 		$project_name = preg_replace('/\W/', '-', $value);
 ?>
-						<li id="project-<?=$project_name?>" class="project" style="background-image: url(<?=$img_src?>);">
-							<h2><?=$value?></h2>
-							<ul id="project-content-<?=$project_name?>" class="project-content">
-								<li class="project-link local">
-									<a href="<?=$value?>" title="Local" rel="external" class="button">Local</a>
-								</li>
-								<li class="project-link test">
-									<a href="http://test.leftclick.com.au/<?=$value?>/" title="Test" rel="external" class="button">Test</a>
-								</li>
-								<li class="project-link production">
-									<a href="http://<?=$value?>/" title="Production" rel="external" class="button">Production</a>
-								</li>
-							</ul>
-						</li>
-<?php
-	}
-?>
-					</ul>
+				<li id="project-<?=$project_name?>" class="project">
+					<div id="project-panel-<?=$project_name?>" class="project-panel" style="background-image: url(<?=$img_src?>);">
+						<h2><?=$value?></h2>
+						<ul id="project-content-<?=$project_name?>" class="project-content">
+							<li class="project-link local">
+								<a href="<?=$value?>" title="Local" rel="external" class="button">Local</a>
+							</li>
+							<li class="project-link test">
+								<a href="http://test.leftclick.com.au/<?=$value?>/" title="Test" rel="external" class="button">Test</a>
+							</li>
+							<li class="project-link production">
+								<a href="http://<?=$value?>/" title="Production" rel="external" class="button">Production</a>
+							</li>
+						</ul>
+					</div>
 				</li>
 <?php
-}
+	}
 ?>
 			</ul>
 			<div class="clear"></div>
