@@ -37,6 +37,7 @@ foreach (scandir('.') as $entry) {
 			ul.project-content { text-align: center; margin: 1em 0 .5em 0; }
 			li.project-link { display: inline-block; font-size: smaller; padding: 0 .5em; }
 			ul#buttons { text-align: center; margin: 1em auto 5em auto; }
+			ul#buttons li { display: inline-block; margin: 0 .5em; }
 			.clear { clear: both; }
 		</style>
 	</head>
@@ -71,10 +72,12 @@ foreach (scandir('.') as $entry) {
 ?>
 			</ul>
 			<div class="clear"></div>
+			<ul id="buttons">
+				<li><a href="phpinfo" class="button" rel="external">PHP Information</a></li>
+				<li><a href="phpconst" class="button" rel="external">PHP Constants</a></li>
+			</ul>
+			<div class="clear"></div>
 		</div>
-		<ul id="buttons">
-			<li><a href="phpinfo" class="button">PHP Information</a></li>
-		</ul>
 		<address><?=php_uname()?></address>
 <script type="text/javascript">
 //<![CDATA[
