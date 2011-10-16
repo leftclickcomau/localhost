@@ -27,7 +27,7 @@ foreach (scandir('.') as $entry) {
 			a.button:hover { background-color: #ccf; }
 			a.button:active { color: #00f; }
 			#container { margin: 0; padding: 0; text-align: center; }
-			ul#projects { list-style: none; margin: 0 200px; padding: 0; }
+			ul#projects { list-style: none; margin: 0 200px; }
 			li.project { display: inline-block; width: 360px; text-align: center; }
 			li.project div.project-panel { margin: 1em; padding: .5em; border: dotted 1px #666; background-color: #000; background-position: 8px 8px; background-repeat: no-repeat; -moz-box-shadow: 0 0 16px #000; }
 			li.project h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 0; color: #eee; }
@@ -36,8 +36,9 @@ foreach (scandir('.') as $entry) {
 			li.project img.right { padding-left: 4px; }
 			ul.project-content { text-align: center; margin: 1em 0 .5em 0; }
 			li.project-link { display: inline-block; font-size: smaller; padding: 0 .5em; }
-			ul#buttons { text-align: center; margin: 1em auto 5em auto; }
-			ul#buttons li { display: inline-block; margin: 0 .5em; }
+			ul#buttons { text-align: center; margin: 1em 0; }
+			ul#buttons li { display: inline; }
+			ul#buttons li a { display: inline-block; margin: 0 .5em; width: 200px; }
 			.clear { clear: both; }
 		</style>
 	</head>
