@@ -26,9 +26,9 @@ foreach (scandir('.') as $entry) {
 			a.button { border: solid 1px #006; padding: .25em; background-color: #eef; color: #006; -moz-box-shadow: 0 0 8px #000; }
 			a.button:hover { background-color: #ccf; }
 			a.button:active { color: #00f; }
-			#container { max-width: 1100px; margin: 0 auto; padding: 0; }
-			ul#projects { list-style: none; margin: 0; padding: 0; }
-			li.project { width: 33.33%; float: left; text-align: center; }
+			#container { margin: 0; padding: 0; text-align: center; }
+			ul#projects { list-style: none; margin: 0 200px; padding: 0; }
+			li.project { display: inline-block; width: 360px; text-align: center; }
 			li.project div.project-panel { margin: 1em; padding: .5em; border: dotted 1px #666; background-color: #000; background-position: 8px 8px; background-repeat: no-repeat; -moz-box-shadow: 0 0 16px #000; }
 			li.project h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 0; color: #eee; }
 			li.project img { width: 16px; height: 16px; vertical-align: middle; }
