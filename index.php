@@ -36,7 +36,7 @@ foreach (scandir('.') as $entry) {
 			li.project img.right { padding-left: 4px; }
 			ul.project-content { text-align: center; margin: 1em 0 .5em 0; }
 			li.project-link { display: inline-block; font-size: smaller; padding: 0 .5em; }
-			ul#buttons { text-align: center; margin: 1em 0; }
+			ul#buttons { text-align: center; margin: 1em 0 5em; }
 			ul#buttons li { display: inline; }
 			ul#buttons li a { display: inline-block; margin: 0 .5em; width: 200px; }
 			.clear { clear: both; }
