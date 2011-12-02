@@ -1,7 +1,7 @@
 <?php
 $list = array();
 foreach (scandir('.') as $entry) {
-	if (is_dir($entry) && preg_match('/^[^\.].*\...*$/', $entry)) {
+	if (is_dir($entry) && preg_match('/^[^\.].*$/', $entry)) {
 		$list[] = $entry;
 	}
 }
@@ -29,11 +29,9 @@ foreach (scandir('.') as $entry) {
 			#container { margin: 0; padding: 0; text-align: center; }
 			ul#projects { list-style: none; margin: 0 200px; }
 			li.project { display: inline-block; width: 360px; text-align: center; }
-			li.project div.project-panel { margin: 1em; padding: .5em; border: dotted 1px #666; background-color: #000; background-position: 8px 8px; background-repeat: no-repeat; -moz-box-shadow: 0 0 16px #000; }
-			li.project h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 0; color: #eee; }
-			li.project img { width: 16px; height: 16px; vertical-align: middle; }
-			li.project img.left { padding-right: 4px; }
-			li.project img.right { padding-left: 4px; }
+			li.project div.project-panel { position: relative; margin: 1em; padding: .5em; border: dotted 1px #666; background-color: #000; background-position: 8px 8px; background-repeat: no-repeat; -moz-box-shadow: 0 0 16px #000; }
+			li.project div.project-panel h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 0; color: #eee; }
+			li.project div.project-panel img { width: 16px; height: 16px; position: absolute; top: 8px; left: 8px; }
 			ul.project-content { text-align: center; margin: 1em 0 .5em 0; }
 			li.project-link { display: inline-block; font-size: smaller; padding: 0 .5em; }
 			ul#buttons { text-align: center; margin: 1em 0 5em; }
@@ -53,8 +51,8 @@ foreach (scandir('.') as $entry) {
 		$project_name = preg_replace('/\W/', '-', $value);
 ?>
 				<li id="project-<?=$project_name?>" class="project">
-					<div id="project-panel-<?=$project_name?>" class="project-panel" style="background-image: url(<?=$img_src?>);">
-						<h2><?=$value?></h2>
+					<div id="project-panel-<?=$project_name?>" class="project-panel">
+						<h2><img src="<?=$img_src?>" alt="*" /><?=$value?></h2>
 						<ul id="project-content-<?=$project_name?>" class="project-content">
 							<li class="project-link local">
 								<a href="<?=$value?>" title="Local" rel="external" class="button">Local</a>
