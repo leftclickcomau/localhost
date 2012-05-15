@@ -14,7 +14,7 @@ foreach (scandir('.') as $entry) {
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> 
 		<style type="text/css">
 			html, body { padding: 0; margin: 0; overflow-x: hidden; }
-			html { background: #333 url(Thor4Andreo.jpg) center no-repeat; }
+			html { background: #333 url(Thor4Andreo.jpg) center no-repeat; background-size: cover; }
 			* { font-family: sans-serif; }
 			h1 { text-align: center; }
 			h1 span { color: #fff; background-color: #000; font-family: monospace; padding: .33em; opacity: .7; -moz-box-shadow: 0 0 24px #000; }
@@ -26,15 +26,15 @@ foreach (scandir('.') as $entry) {
 			a.button { border: solid 1px #006; padding: .25em; background-color: #eef; color: #006; -moz-box-shadow: 0 0 8px #000; }
 			a.button:hover { background-color: #ccf; }
 			a.button:active { color: #00f; }
-			#container { margin: 0; padding: 0; text-align: center; }
-			ul#projects { list-style: none; margin: 0 200px; }
+			#container { margin: 0; padding: 0 0 5em 0; text-align: center; }
+			ul#projects { list-style: none; margin: 0 100px; }
 			li.project { display: inline-block; width: 360px; text-align: center; }
 			li.project div.project-panel { position: relative; margin: 1em; padding: .5em; border: dotted 1px #666; background-color: #000; background-position: 8px 8px; background-repeat: no-repeat; -moz-box-shadow: 0 0 16px #000; }
 			li.project div.project-panel h2 { display: inline-block; font-size: 1em; line-height: 1em; padding: 0; margin: 0; color: #eee; }
 			li.project div.project-panel img { width: 16px; height: 16px; position: absolute; top: 8px; left: 8px; }
 			ul.project-content { text-align: center; margin: 1em 0 .5em 0; }
 			li.project-link { display: inline-block; font-size: smaller; padding: 0 .5em; }
-			ul#buttons { text-align: center; margin: 1em 0 5em; }
+			ul#buttons { text-align: center; margin: 1em 0; }
 			ul#buttons li { display: inline; }
 			ul#buttons li a { display: inline-block; margin: 0 .5em; width: 200px; }
 			.clear { clear: both; }
@@ -74,6 +74,10 @@ foreach (scandir('.') as $entry) {
 			<ul id="buttons">
 				<li><a href="phpinfo" class="button" rel="external">PHP Information</a></li>
 				<li><a href="phpconst" class="button" rel="external">PHP Constants</a></li>
+			</ul>
+			<ul id="buttons">
+				<li><a href="http://localhost:81/" class="button" rel="external">Port 81</a></li>
+				<li><a href="http://localhost:82/" class="button" rel="external">Port 82</a></li>
 			</ul>
 			<div class="clear"></div>
 		</div>
