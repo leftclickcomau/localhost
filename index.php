@@ -76,8 +76,9 @@ foreach (scandir('.') as $entry) {
 				<li><a href="phpconst" class="button" rel="external">PHP Constants</a></li>
 			</ul>
 			<ul id="buttons">
-				<li><a href="http://localhost:81/" class="button" rel="external">Port 81</a></li>
-				<li><a href="http://localhost:82/" class="button" rel="external">Port 82</a></li>
+				<li><a href="http://localhost:81/" class="button" rel="external">localhost:81</a></li>
+				<li><a href="http://localhost:82/" class="button" rel="external">localhost:82</a></li>
+				<li><a href="http://localhost:83/" class="button" rel="external">localhost:83</a></li>
 			</ul>
 			<div class="clear"></div>
 		</div>
