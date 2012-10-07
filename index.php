@@ -34,9 +34,9 @@ foreach (scandir('.') as $entry) {
 			li.project div.project-panel img { width: 16px; height: 16px; position: absolute; top: 8px; left: 8px; }
 			ul.project-content { text-align: center; margin: 1em 0 .5em 0; }
 			li.project-link { display: inline-block; font-size: smaller; padding: 0 .5em; }
-			ul#buttons { text-align: center; margin: 1em 0; }
-			ul#buttons li { display: inline; }
-			ul#buttons li a { display: inline-block; margin: 0 .5em; width: 200px; }
+			ul.buttons { text-align: center; margin: 1em 0; }
+			ul.buttons li { display: inline; }
+			ul.buttons li a { display: inline-block; margin: 0 .5em; width: 200px; }
 			.clear { clear: both; }
 		</style>
 	</head>
@@ -71,14 +71,16 @@ foreach (scandir('.') as $entry) {
 ?>
 			</ul>
 			<div class="clear"></div>
-			<ul id="buttons">
+			<ul class="buttons">
+				<li><a href="http://localhost:81/" class="button" rel="external">Quokka</a></li>
+				<li><a href="http://localhost:82/" class="button" rel="external">XSend</a></li>
+				<li><a href="http://localhost:83/" class="button" rel="external">TWC</a></li>
+			</ul>
+			<ul class="buttons">
+				<li><a href="phpmyadmin" class="button" rel="external">MySQL Admin</a></li>
+				<li><a href="phpmemcacheadmin" class="button" rel="external">Memcache Admin</a></li>
 				<li><a href="phpinfo" class="button" rel="external">PHP Information</a></li>
 				<li><a href="phpconst" class="button" rel="external">PHP Constants</a></li>
-			</ul>
-			<ul id="buttons">
-				<li><a href="http://localhost:81/" class="button" rel="external">localhost:81</a></li>
-				<li><a href="http://localhost:82/" class="button" rel="external">localhost:82</a></li>
-				<li><a href="http://localhost:83/" class="button" rel="external">localhost:83</a></li>
 			</ul>
 			<div class="clear"></div>
 		</div>
