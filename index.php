@@ -73,8 +73,7 @@ foreach (scandir('.') as $entry) {
 			<div class="clear"></div>
 			<ul class="buttons">
 				<li><a href="http://localhost:81/" class="button" rel="external">Quokka</a></li>
-				<li><a href="http://localhost:82/" class="button" rel="external">XSend</a></li>
-				<li><a href="http://localhost:83/" class="button" rel="external">TWC</a></li>
+				<li><a href="http://localhost:82/" class="button" rel="external">TWC</a></li>
 			</ul>
 			<ul class="buttons">
 				<li><a href="phpmyadmin" class="button" rel="external">MySQL Admin</a></li>
