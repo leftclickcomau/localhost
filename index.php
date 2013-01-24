@@ -61,14 +61,14 @@ $customLinks = array(
 	)
 );
 // Determine the link URL for each project in each environment
-foreach ($projects as $project) {
+foreach ($projects as $index => $project) {
 	if (!isset($project['linkUrl'])) {
 		$project['linkUrl'] = array();
 	}
 	foreach ($environments as $environment) {
 		if (isset($projectOverrides[$project['dirname']]) && isset($projectOverrides[$project['dirname']][$environment['id']])) {
 			// Use project override for this project/environment combination
-			$project['linkUrl'][$environment['id']] = $projectOverrides[$project['dirname']][$environment['id']];
+			$projects[$index]['linkUrl'][$environment['id']] = $projectOverrides[$project['dirname']][$environment['id']];
 		} elseif (isset($environment['useSubdir'])) {
 			// Use a subdirectory according to environment, if one exists
 			$subdir = '';
@@ -77,10 +77,10 @@ foreach ($projects as $project) {
 					$subdir = $option;
 				}
 			}
-			$project['linkUrl'][$environment['id']] = $environment['urlPrefix'] . $project['dirname'] . $subdir;
+			$projects[$index]['linkUrl'][$environment['id']] = $environment['urlPrefix'] . $project['dirname'] . $subdir;
 		} else {
 			// No subdir specified in this environment, just past together the prefix and directory name
-			$project['linkUrl'][$environment['id']] = $environment['urlPrefix'] . $project['dirname'];
+			$projects[$index]['linkUrl'][$environment['id']] = $environment['urlPrefix'] . $project['dirname'];
 		}
 	}
 }
