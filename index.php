@@ -10,17 +10,28 @@ foreach (scandir('.') as $entry) {
 		);
 	}
 }
+// Overrides for projects that do not use the standard link URL
+$projectOverrides = array(
+	'quokka.wanews.com.au' => array(
+		'local' => 'http://localhost:81/'
+	),
+	'twc.com.au' => array(
+		'local' => 'http://localhost:82/'
+	)
+);
 // Specify the available environments; links to each environment will be generated for each project.
 $environments = array(
 	array(
 		'id' => 'local',
 		'label' => 'Local',
-		'urlPrefix' => ''
+		'urlPrefix' => '',
+		'useSubdir' => array( '/public', '/public_html' )
 	),
 	array(
 		'id' => 'test',
 		'label' => 'Test',
-		'urlPrefix' => 'http://test.leftclick.com.au/'
+		'urlPrefix' => 'http://test.leftclick.com.au/',
+		'useSubdir' => array( '/public', '/public_html' )
 	),
 	array(
 		'id' => 'production',
@@ -30,16 +41,6 @@ $environments = array(
 );
 // Specify custom links to display at the bottom.
 $customLinks = array(
-	array(
-		array(
-			'label' => 'Quokka',
-			'url' => 'http://localhost:81/'
-		),
-		array(
-			'label' => 'TWC',
-			'url' => 'http://localhost:82/'
-		)
-	),
 	array(
 		array(
 			'label' => 'MySQL Admin',
@@ -59,10 +60,33 @@ $customLinks = array(
 		),
 	)
 );
+// Determine the link URL for each project in each environment
+foreach ($projects as $project) {
+	if (!isset($project['linkUrl'])) {
+		$project['linkUrl'] = array();
+	}
+	foreach ($environments as $environment) {
+		if (isset($projectOverrides[$project['dirname']]) && isset($projectOverrides[$project['dirname']][$environment['id']])) {
+			// Use project override for this project/environment combination
+			$project['linkUrl'][$environment['id']] = $projectOverrides[$project['dirname']][$environment['id']];
+		} elseif (isset($environment['useSubdir'])) {
+			// Use a subdirectory according to environment, if one exists
+			$subdir = '';
+			foreach ($environment['useSubdir'] as $option) {
+				if (file_exists($project['dirname'] . $option)) {
+					$subdir = $option;
+				}
+			}
+			$project['linkUrl'][$environment['id']] = $environment['urlPrefix'] . $project['dirname'] . $subdir;
+		} else {
+			// No subdir specified in this environment, just past together the prefix and directory name
+			$project['linkUrl'][$environment['id']] = $environment['urlPrefix'] . $project['dirname'];
+		}
+	}
+}
 ?>
-<?='<?xml version="1.0" encoding="utf-8" ?>' . "\n"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
 		<title>localhost</title>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> 
@@ -83,7 +107,7 @@ foreach ($projects as $project) {
 	foreach ($environments as $environment) {
 ?>
 							<li class="project-link <?=$environment['id']?>">
-								<a href="<?=$environment['urlPrefix'] . $project['dirname']?>" title="<?=$environment['label']?>" rel="external" class="button"><?=$environment['label']?></a>
+								<a href="<?=$project['linkUrl'][$environment['id']]?>" title="<?=$environment['label']?>" rel="external" class="button"><?=$environment['label']?></a>
 							</li>
 <?php
 	}
