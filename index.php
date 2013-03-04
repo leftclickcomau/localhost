@@ -5,7 +5,8 @@ foreach (scandir('.') as $entry) {
 	if (is_dir($entry) && preg_match('/^[^\.].*$/', $entry)) {
 		$projects[] = array(
 			'dirname' => $entry,
-			'imgSrc' => file_exists($entry . '/favicon.ico') ? ($entry . '/favicon.ico') : 'unknown.ico',
+			'imgSrc' => file_exists($entry . '/favicon.ico') ? $entry . '/favicon.ico' : 
+						(file_exists($entry . '/public/favicon.ico') ? $entry . '/public/favicon.ico' : 'unknown.ico'),
 			'id' => preg_replace('/\W/', '-', $entry)
 		);
 	}
@@ -44,19 +45,19 @@ $customLinks = array(
 	array(
 		array(
 			'label' => 'MySQL Admin',
-			'url' => 'phpmyadmin'
+			'url' => 'phpmyadmin/'
 		),
 		array(
 			'label' => 'Memcache Admin',
-			'url' => 'phpmemcacheadmin'
+			'url' => 'phpmemcacheadmin/'
 		),
 		array(
 			'label' => 'PHP Information',
-			'url' => 'phpinfo'
+			'url' => 'phpinfo.php'
 		),
 		array(
 			'label' => 'PHP Constants',
-			'url' => 'phpconst'
+			'url' => 'phpconst.php'
 		),
 	)
 );
