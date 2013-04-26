@@ -5,8 +5,9 @@ foreach (scandir('.') as $entry) {
 	if (is_dir($entry) && preg_match('/^[^\.].*$/', $entry)) {
 		$projects[] = array(
 			'dirname' => $entry,
-			'imgSrc' => file_exists($entry . '/favicon.ico') ? $entry . '/favicon.ico' : 
-						(file_exists($entry . '/public/favicon.ico') ? $entry . '/public/favicon.ico' : 'unknown.ico'),
+			'imgSrc' => (file_exists($entry . '/favicon.ico') ? $entry . '/favicon.ico' : 
+						(file_exists($entry . '/public/favicon.ico') ? $entry . '/public/favicon.ico' : 
+						(file_exists($entry . '/public_html/favicon.ico') ? $entry . '/public_html/favicon.ico' : 'unknown.ico'))),
 			'id' => preg_replace('/\W/', '-', $entry)
 		);
 	}
