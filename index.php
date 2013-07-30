@@ -19,6 +19,11 @@ $projectOverrides = array(
 	),
 	'twc.com.au' => array(
 		'local' => 'http://localhost:82/'
+	),
+	'webshop' => array(
+		'local' => 'http://webshop.local/',
+		'test' => 'http://webshop.dev.cashconverters.com.au/',
+		'production' => 'http://webshop.cashconverters.com.au/'
 	)
 );
 // Specify the available environments; links to each environment will be generated for each project.
